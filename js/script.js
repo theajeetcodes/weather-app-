@@ -15,3 +15,17 @@ searchBtn.classList.add("search-btn");
 searchBtn.textContent = "Search";
 container.appendChild(searchBtn);
 
+const weatherBox = document.createElement("div");
+weatherBox.classList.add("weather-box");
+container.appendChild(weatherBox);
+
+const weatherIcon = document.createElement("img");
+weatherIcon.classList.add("weather-icon");
+weatherIcon.src = "";
+weatherBox.appendChild(weatherIcon);
+
+const temperature = document.createElement("h2");
+temperature.classList.add("temperature");
+temperature.textContent = "25°C";
+weatherBox.appendChild(temperature);
+
