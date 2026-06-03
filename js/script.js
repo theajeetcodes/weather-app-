@@ -29,3 +29,13 @@ temperature.classList.add("temperature");
 temperature.textContent = "25°C";
 weatherBox.appendChild(temperature);
 
+const cityName = document.createElement("h3");
+cityName.classList.add("city-name");
+cityName.textContent = "Lucknow";
+weatherBox.appendChild(cityName);
+
+const weatherCondition = document.createElement("p");
+weatherCondition.classList.add("weather-condition");
+weatherCondition.textContent = "clear Sky";
+weatherBox.appendChild(weatherCondition);
+
