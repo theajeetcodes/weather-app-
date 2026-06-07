@@ -39,3 +39,7 @@ weatherCondition.classList.add("weather-condition");
 weatherCondition.textContent = "clear Sky";
 weatherBox.appendChild(weatherCondition);
 
+searchBtn.addEventListener("click", () => {
+    const city = userInput.value;
+    console.log(city);
+})
