@@ -41,5 +41,7 @@ weatherBox.appendChild(weatherCondition);
 
 searchBtn.addEventListener("click", () => {
     const city = userInput.value;
-    console.log(city);
+    cityName.textContent = city;
+    temperature.textContent = "32°C";
+    weatherCondition.textContent = "Cloudy";
 })
