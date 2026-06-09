@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const API_KEY = "d821ae5e423676943d761a7bf0545038";
 
 const heading = document.createElement("h1");
 heading.classList.add("head");
@@ -39,9 +40,34 @@ weatherCondition.classList.add("weather-condition");
 weatherCondition.textContent = "clear Sky";
 weatherBox.appendChild(weatherCondition);
 
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", async () => {
     const city = userInput.value;
-    cityName.textContent = city;
-    temperature.textContent = "32°C";
-    weatherCondition.textContent = "Cloudy";
-})
+
+    if (city === "") {
+        alert("Please enter a city name");
+        return;
+    }
+    try {
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+        );
+
+        const data = await response.json();
+        console.log(data);
+
+        if (data.cod !==200) {
+            alert("city not found");
+            return;
+        }
+
+        cityName.textContent = data.name;
+        temperature.textContent = `${Math.round(data.main.temp)}°C`;
+        weatherCondition.textContent = data.weather[0].description;
+
+        
+    } catch (error) {
+        alert("Something went wrong");
+        console.log(error);
+    }
+    
+});
