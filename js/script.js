@@ -40,6 +40,11 @@ weatherCondition.classList.add("weather-condition");
 weatherCondition.textContent = "clear Sky";
 weatherBox.appendChild(weatherCondition);
 
+const humidity = document.createElement("p");
+humidity.classList.add("humidity");
+humidity.textContent = "Humidity: 0%";
+weatherBox.appendChild(humidity);
+
 searchBtn.addEventListener("click", async () => {
     const city = userInput.value;
 
@@ -63,6 +68,7 @@ searchBtn.addEventListener("click", async () => {
         cityName.textContent = data.name;
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
         weatherCondition.textContent = data.weather[0].description;
+        humidity.textContent = `Humidity: ${data.main.humidity}%`;
 
         
     } catch (error) {
