@@ -45,6 +45,11 @@ humidity.classList.add("humidity");
 humidity.textContent = "Humidity: 0%";
 weatherBox.appendChild(humidity);
 
+const wind = document.createElement("P");
+wind.classList.add("wind");
+wind.textContent = "20km/h";
+weatherBox.appendChild(wind);
+
 searchBtn.addEventListener("click", async () => {
     const city = userInput.value;
 
@@ -69,6 +74,7 @@ searchBtn.addEventListener("click", async () => {
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
         weatherCondition.textContent = data.weather[0].description;
         humidity.textContent = `Humidity: ${data.main.humidity}%`;
+        wind.textContent = `wind: ${data.wind.speed} m/s`;
 
         
     } catch (error) {

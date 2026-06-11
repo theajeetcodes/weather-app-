@@ -88,8 +88,19 @@ body {
     letter-spacing: 1px;
 }
 
-.humidity {
-    color: white;
+.humidity,
+.wind {
+    color: #e2e8f0;
     font-size: 1rem;
-    margin-top: 10px;
+    font-weight: 600;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.wind {
+    margin-top: 8px;
 }
