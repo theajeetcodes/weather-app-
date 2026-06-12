@@ -76,6 +76,11 @@ searchBtn.addEventListener("click", async () => {
         humidity.textContent = `Humidity: ${data.main.humidity}%`;
         wind.textContent = `wind: ${data.wind.speed} m/s`;
 
+        const iconCode = data.weather[0].icon;
+        console.log(iconCode);
+        weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        console.log("Image url:", weatherIcon.src);
+
         
     } catch (error) {
         alert("Something went wrong");
