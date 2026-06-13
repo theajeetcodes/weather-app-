@@ -16,6 +16,12 @@ searchBtn.classList.add("search-btn");
 searchBtn.textContent = "Search";
 container.appendChild(searchBtn);
 
+userInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        searchBtn.click();
+    }
+});
+
 const weatherBox = document.createElement("div");
 weatherBox.classList.add("weather-box");
 container.appendChild(weatherBox);
