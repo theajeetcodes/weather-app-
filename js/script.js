@@ -26,6 +26,8 @@ const weatherBox = document.createElement("div");
 weatherBox.classList.add("weather-box");
 container.appendChild(weatherBox);
 
+weatherBox.style.display = "none";
+
 const weatherIcon = document.createElement("img");
 weatherIcon.classList.add("weather-icon");
 weatherIcon.src = "";
@@ -72,6 +74,7 @@ searchBtn.addEventListener("click", async () => {
         console.log(data);
 
         if (data.cod !==200) {
+            weatherBox.style.display = "none";
             alert("city not found");
             return;
         }
@@ -81,6 +84,7 @@ searchBtn.addEventListener("click", async () => {
         weatherCondition.textContent = data.weather[0].description;
         humidity.textContent = `Humidity: ${data.main.humidity}%`;
         wind.textContent = `wind: ${data.wind.speed} m/s`;
+        weatherBox.style.display = "flex";
 
         const iconCode = data.weather[0].icon;
         console.log(iconCode);
