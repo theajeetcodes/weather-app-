@@ -66,12 +66,19 @@ searchBtn.addEventListener("click", async () => {
         return;
     }
     try {
+
+        searchBtn.textContent = "Loading...";
+        searchBtn.disabled = true;
+
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
         );
 
         const data = await response.json();
         console.log(data);
+
+        searchBtn.textContent = "Search";
+        searchBtn.disabled = false;
 
         if (data.cod !==200) {
             weatherBox.style.display = "none";
@@ -89,10 +96,14 @@ searchBtn.addEventListener("click", async () => {
         const iconCode = data.weather[0].icon;
         console.log(iconCode);
         weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        userInput.value = "";
         console.log("Image url:", weatherIcon.src);
 
         
     } catch (error) {
+
+        searchBtn.textContent = "Search";
+        searchBtn.disabled = false;
         alert("Something went wrong");
         console.log(error);
     }

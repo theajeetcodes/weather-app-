@@ -104,3 +104,24 @@ body {
 .wind {
     margin-top: 8px;
 }
+
+.search-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .temperature {
+        font-size: 2.5rem;
+    }
+
+    .weather-icon {
+        width: 100px;
+        height: 100px;
+    }
+}
