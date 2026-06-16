@@ -11,6 +11,8 @@ userInput.classList.add("input");
 userInput.placeholder = "Enter Your City";
 container.appendChild(userInput);
 
+userInput.focus();
+
 const searchBtn = document.createElement("button");
 searchBtn.classList.add("search-btn");
 searchBtn.textContent = "Search";
@@ -47,6 +49,11 @@ const weatherCondition = document.createElement("p");
 weatherCondition.classList.add("weather-condition");
 weatherCondition.textContent = "clear Sky";
 weatherBox.appendChild(weatherCondition);
+
+const feelsLike = document.createElement("p");
+feelsLike.classList.add("feels-like");
+feelsLike.textContent = "Feels Like: 0°C";
+weatherBox.appendChild(feelsLike);
 
 const humidity = document.createElement("p");
 humidity.classList.add("humidity");
@@ -86,9 +93,11 @@ searchBtn.addEventListener("click", async () => {
             return;
         }
 
-        cityName.textContent = data.name;
+        cityName.textContent = `${data.name}, ${data.sys.country}`;
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
         weatherCondition.textContent = data.weather[0].description;
+
+        feelsLike.textContent = `Feels Like: ${Math.round(data.main.feels_like)}°C`;
         humidity.textContent = `Humidity: ${data.main.humidity}%`;
         wind.textContent = `wind: ${data.wind.speed} m/s`;
         weatherBox.style.display = "flex";

@@ -88,6 +88,11 @@ body {
     letter-spacing: 1px;
 }
 
+.feels-like {
+    color: #e2e8f0;
+    font-size: 1rem;
+}
+
 .humidity,
 .wind {
     color: #e2e8f0;
